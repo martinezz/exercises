@@ -1,4 +1,4 @@
-  require "spec_helper"
+require "spec_helper"
 require "vector"
 
 # When implementing, you cannot use array methods #min and #max
@@ -26,9 +26,9 @@ describe Vector do
 
   describe "#total" do
     it "returns the sum of elements from array" do
-      vector = Vector.new([3,5,2])
+      vector = Vector.new([3,5,2,2])
 
-      expect(vector.total).to eq 10
+      expect(vector.total).to eq 12
     end
   end
 
@@ -42,9 +42,9 @@ describe Vector do
 
   describe "#select_even" do
     it "returns new array of even elements from array" do
-      vector = Vector.new([3,5,2])
+      vector = Vector.new([3,5,2,4])
 
-      expect(vector.select_even).to eq [2]
+      expect(vector.select_even).to eq [2,4]
     end
   end
 end
