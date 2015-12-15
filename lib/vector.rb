@@ -26,6 +26,7 @@ class Vector
   # [1,2]
   # []
   def total
+    #@array.reduce(:+)
     current_total = 0
     @array.each do |current_number|
       current_total = current_number + current_total
@@ -34,13 +35,14 @@ class Vector
   end
 
   def select_odd
-    current_odd = []
-    @array.each do |current_number|
-      if current_number.odd?
-        current_odd << current_number
-      end
-    end
-    current_odd
+    @array.select(&:odd?)
+    # current_odd = []
+    # @array.each do |current_number|
+    #   if current_number.odd?
+    #     current_odd << current_number
+    #   end
+    # end
+    # current_odd
   end
 
   def select_even
@@ -51,5 +53,25 @@ class Vector
       end
     end
     current_even
+  end
+
+  def add(number)
+    @array.map do |current_number|
+      current_number + number
+    end
+  end
+
+  def mul
+    @array.map do |current_number|
+      current_number * current_number
+    end
+  end
+
+  def to_s
+    "Values: " + @array.join(", ")
+  end
+
+  def pop
+    @array.slice!(-1)
   end
 end

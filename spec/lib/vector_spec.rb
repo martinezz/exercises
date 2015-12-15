@@ -1,8 +1,8 @@
 require "spec_helper"
 require "vector"
 
-# When implementing, you cannot use array methods #min and #max
-   # each
+# When implementing, you cannot use array methods #pop, #min and #max
+
 describe Vector do
   describe "#maximum" do
     it "returns the largest element from array" do
@@ -45,6 +45,46 @@ describe Vector do
       vector = Vector.new([3,5,2,4])
 
       expect(vector.select_even).to eq [2,4]
+    end
+  end
+
+  #map
+  describe "#add" do
+    it "adds a number to each array element" do
+      vector = Vector.new([3,5])
+
+      expect(vector.add(1)).to eq [4,6]
+      expect(vector.add(3)).to eq [6,8]
+    end
+  end
+
+  #map
+  describe "#mul" do
+    it "multiplies each number by itself" do
+      vector = Vector.new([3,5])
+
+      expect(vector.mul).to eq [9,25]
+    end
+  end
+
+  #join
+  describe "#to_s" do
+    it "serializes array to string" do
+      vector = Vector.new([3,5,6])
+
+      expect(vector.to_s).to eq "Values: 3, 5, 6"
+    end
+  end
+
+  # cannot use native "pop"
+  describe "#pop" do
+    it "serializes array to string" do
+      vector = Vector.new([3,5,6])
+
+      expect(vector.pop).to eq 6
+      expect(vector.pop).to eq 5
+      expect(vector.pop).to eq 3
+      expect(vector.pop).to eq nil
     end
   end
 end
